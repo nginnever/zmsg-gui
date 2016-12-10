@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <script type="text/javascript" src="../lib/jquery-1.4.4.min.js"></script>
+        <script type="text/javascript">$.ajax({
+    url: 'http://test:test1234@localhost:8232',
+    dataType: 'json',
+    type: 'POST',
+    contentType: 'text/plain',
+    data: '{"method": "getinfo", "params": [""]}',
+    // For parameters:
+    //data: '{"method": "API_METHOD", "params": ["PARAMETERS"]}',
+    timeout: 15000,
+    success: function(data) {
+    	console.log(data)
+        // Response lives in data.result (data.result.version, etc)
+    },
+    error: function(oops) {
+        // oops.statusText returns error 
+    }
+});</script>
+
+    </body>
+</html>

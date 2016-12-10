@@ -1,0 +1,29 @@
+{
+  "name": "zmsg-gui",
+  "version": "0.0.0",
+  "description": "A javascript based interface for sending messages via zcash encrypted memo fields",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nginnever/zmsg-gui"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nginnever/zmsg-gui/issues"
+  },
+  "homepage": "https://github.com/nginnever/zmsg-gui",
+  "dependencies": {
+    "bitcoin": "^3.0.1",
+    "bitcoin-rpc": "^0.2.1",
+    "http-browserify": "^1.7.0",
+    "json-rpc-client": "^0.2.2",
+    "node-bitcoin-rpc": "^1.1.2",
+    "node-json-rpc": "0.0.1",
+    "stream-http": "^2.5.0",
+    "superagent": "^3.1.0"
+  }
+}

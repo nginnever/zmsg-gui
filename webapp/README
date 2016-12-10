@@ -1,0 +1,25 @@
+This is a javascript UI for bitcoind. You can either use the RPC interface at localhost
+or use the included SSLserver.py to access your wallet over the internet.
+
+Setting up SSLserver.py
+=======================
+
+1. Create server .cert and .pem
+
+openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout server.pem -out server.cert
+
+You don't have to worry about your keyfile being in the same directory as js-remote.
+SSLserver.py will only serve files ending in .html, .css, .js, .json, .png, .jpeg, or .jpg
+
+2. Start SSLserver.py
+
+python SSLserver.py 
+
+SSLserver.py will listen on port 8338 by default. Remember to use https:// instead of http://
+Try it by opening https://localhost:8338/ in your browser.
+
+If your bitcoind isn't running on the same machine SSLserver.py will run on, you can
+change the RPC URL with the -r parameter:
+
+python SSLserver.py -r http://other.host:8332/
+

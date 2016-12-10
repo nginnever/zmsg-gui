@@ -1,0 +1,341 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 10pt;
+	background: #eee;
+	color: #fff;
+}
+
+/* force scrollbar */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0 0 1px 0;
+}
+
+.section:after, .clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#container {
+	border-color: #bbb;
+	border-style: solid;
+	border-width: 0 1px 0 1px;
+	position: relative;
+	margin: 0 auto;
+	max-width: 600px;
+	background: #111;
+}
+
+h1 {
+	padding: 8pt;
+	margin: 0;
+	font-size: 1.8em;
+	overflow: hidden;
+}
+
+h4 {
+	margin: 3pt 0;
+}
+
+#sections h3 {
+	color: #eee;
+	background: #333 url(images/background-section-head.png) top left repeat-x;
+	padding: 0.5em;
+	margin: 0;
+	text-shadow: #000 2px 2px 0px;
+}
+
+#sections h3:hover {
+	color: #fd4;
+	background: #444;
+}
+
+#sections .section {
+	background: #fff url(images/background-section.png) top left repeat-x;
+	padding: 10pt 8pt 4pt 8pt;
+	color: #222;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-serif;
+}
+
+.error, .success {
+	color: #eee !important;
+}
+
+.success {
+	background-color: #0E8C3A !important;
+}
+
+.error {
+	background-color: #DB2645 !important;
+}
+
+.critical {
+	background-color: #712 !important;
+	color: #eee !important;
+}
+
+p {
+	margin: 0.3em 3pt;
+}
+
+table {
+	width: 100%;
+}
+
+table {
+	font-size: 10pt;
+	color: #222;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	border-spacing: 0;
+}
+
+table td {
+	padding: 0.3em 3pt;
+}
+
+table th {
+	padding: 0.3em 3pt;
+}
+
+table tr {
+	margin: 0;
+}
+
+table tr.odd {
+	background: #f5f5f5;
+}
+
+.big {
+	font-size: 12pt;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.italic {
+	font-style: italic;
+}
+
+tr.unconfirmed {
+	opacity: 0.4;
+}
+
+.credit, .valRight {
+	color: #0E8C3A;
+}
+
+.debit, .valWrong {
+	color: #DB2645;
+}
+
+div.humanized-message{
+	position: absolute;
+	text-align: center;
+	width: 70%;
+	min-height: 20px;
+	_height: 20px;
+	background: #333;
+	color: #fff;
+	z-index: 100000;
+	padding: 20px;
+	font-size: 30px;
+	visibility: hidden;
+	-moz-border-radius:10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#disconnectButton {
+	position: absolute;
+	top: 5pt;
+	right: 5pt;
+	color: #DB2645;
+	border-color: #DB2645;
+	background-color: #FFD1D9;
+	padding: 0em 0.3em;
+}
+
+form {
+	padding: 5pt;
+}
+
+form label {
+	display: inline-block;
+	text-align: right;
+	width: 5em;
+	margin-right: 2em;
+}
+
+form input {
+	border: 1px solid #ddd;
+	margin: 0.3em 0;
+	padding: 0.5em;
+	background: transparent;
+}
+
+#footer {
+	text-align: center;
+	margin-top: 1em;
+	padding-bottom: 0.5em;
+	color: #999;
+}
+
+#footer a {
+	color: #fd4;
+	text-decoration: none;
+}
+
+.valRight, .valWrong {
+	margin-left: 0.3em;
+	font-size: 1.5em;
+}
+
+#txlist {
+	table-layout: fixed;
+}
+
+#sections h3, .button, #txlist tbody tr, #accountList tbody tr {
+	cursor:pointer; cursor:hand;
+}
+
+#txlist td.info {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100px;
+}
+
+#txlist tr.txinfo, #txlist tr.txinfo td {
+	padding: 0;
+	margin: 0;
+	background: transparent;
+}
+
+#txlist tbody tr:hover, #accountList tbody tr:hover {
+	background: #fe8;
+}
+
+#txlist tbody tr.txinfo:hover {
+	background: transparent;
+}
+
+#txlist tbody tr:hover + tr.txinfo div {
+	background: #fe8;
+}
+
+#txlist tr.txinfo div {
+	margin: 0 0 4pt 0;
+	padding: 0 6pt 4pt 6pt;
+	overflow: hidden;
+}
+
+#txlist tr.txinfo div label, #connectionInfo label {
+	font-weight: bold;
+}
+
+#balance {
+	float: right;
+}
+
+#addressBox {
+	background: #fff;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-serif;
+	color: #222;
+	padding: 0.3em;
+}
+
+#address {
+	text-align: center;
+	margin: 0.2em 0;
+}
+
+.QRbutton, #QRbutton {
+	float: left;
+}
+
+#scanQRbutton {
+	font-size: 1.2em;
+}
+
+.button {
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #0E8C3A;
+	color: #0E8C3A;
+	padding: 0.15em 0.3em;
+	background: #D6FFE4;
+}
+
+span.button:hover {
+	background: #ffa !important;
+	border-color: #fa0 !important;
+}
+
+.buttonSend, .buttonCancel {
+	padding: 0.5em;
+}
+
+.buttonSend {
+	float: left;
+}
+
+.buttonCancel {
+	float: right;
+	color: #DB2645;
+	border-color: #DB2645;
+	background-color: #FFD1D9;
+}
+
+#addAccount, #QRinject {
+	clear: both;
+	padding: 3pt 0 0 0;
+	margin: 0;
+}
+
+#addAccount input, #QRinject input {
+	margin: 0;
+	padding: 0.1em;
+	width: 100%;
+}
+
+#txlistfooter {
+	margin-top: 0.5em;
+}
+
+.TXListMore, .TXListLess {
+	padding: 0.5em;
+	width: 3em;
+}
+
+.TXListMore {
+	float: left;
+}
+
+.TXListLess {
+	float: right;
+}
+
+#accountList label {
+	font-weight: bold;
+}
+
+.QRlabel {
+	display: block;
+	color: #000;
+	font-size: 2em;
+	font-weight: bold;
+}

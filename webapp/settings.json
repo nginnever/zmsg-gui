@@ -1,0 +1,9 @@
+{
+	"RPC": { 
+		"url": "/",
+		"user": "test",
+		"password": "test1234",
+		"account": ""
+	},
+	"labelsmode": 1
+}

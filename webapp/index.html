@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<title>Bitcoin</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="mobile.css" type="text/css" media="handheld, only screen and (max-device-width:700px)" />
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script type="text/javascript" src="../lib/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="../lib/jquery.humanMsg.js"></script>
+		<script type="text/javascript" src="../lib/base64.js"></script>
+		<script type="text/javascript" src="../lib/URI.js"></script>
+		<script type="text/javascript" src="../lib/json2.js"></script>
+		<script type="text/javascript" src="../lib/NumberFormat154.js"></script>
+		<script type="text/javascript" src="../lib/DateFormat.js"></script>
+		<script type="text/javascript" src="txlist.js"></script>
+		<script type="text/javascript" src="sendbtc.js"></script>
+		<script type="text/javascript" src="helper.js"></script>
+		<script type="text/javascript" src="accountlist.js"></script>
+		<script type="text/javascript" src="bitcoin.js"></script>
+		<script type="text/javascript" src="bitcoinapp.js"></script>
+		<script type="text/javascript">
+			function scrollTo0() {
+				window.scrollTo(1,1);
+			}
+		</script>
+	</head>
+	<body onorientationchange="setTimeout(scrollTo0, 10);" onload="setTimeout(scrollTo0, 10);">
+		<div id="container">
+			<h1><span id="title">Javascript required!</span> <span class="button" id="disconnectButton">&#x2716;</span></h1>
+			<div id="sections">
+				<div id="addressBox" class="clearfix">
+					<span class="button" id="QRbutton">QR</span>
+					<p id="address"></p>
+					<form id="QRinject">
+						<input name="uri" placeholder="Paste bitcoin: URI here and hit return"/>
+					</form>
+				</div>
+				<h3 id="section_Accounts">
+					<span id="currentAccount"></span>
+					<span id="balance"</span>
+				</h3>
+				<div class="section">
+					<table id="accountList">
+					</table>
+				</div>
+				<h3 id="section_SendBTC">Send bitcoins</h3>
+				<div class="section" id="sendBTC">
+					<div id="sendBTCinfo"></div>
+					<form>
+						<label>Address</label><input name="address" /><span></span><br/>
+						<label>Amount</label><input name="amount" /><span></span><br/>
+						<label>Payee*</label><input name="payee" /><span></span><br/>
+						<label>Comment*</label><input name="comment" /><span></span><br/>
+						<label>Passphrase**</label><input name="passphrase" type="password"/><span></span><br/>
+						<label>
+						<span id="scanQRbutton" class="button">scan QR</span>
+						</label><button>Send Bitcoins</button> <button type="reset">Reset</button><br/>
+						* This information is not transmitted, it'll only be stored in your wallet.<br/>
+                        ** Provide your passphrase here if the wallet is encrypted.
+					</form>
+				</div>
+				<h3 id="section_TX">Transactions</h3>
+				<div class="section">
+					<table id="txlist">
+						<thead>
+							<tr><th style="width: 1em">#</th><th style="width: 9.5em" class="left">Date</th><th class="left">Info</th><th style="width: 9em" class="right">Amount</th></tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<div id="txlistfooter"></div>
+				</div>
+				<h3 id="section_Settings">Settings / Server Information</h3>
+				<div class="section">
+					<form id="settingsServer">
+						<label>User</label><input name="user" /></br>
+						<label>Password</label><input name="pass" type="password"/></br>
+						<label>URL</label><input name="url" value="http://localhost:8232"/></br>
+						<label></label><input name="labelsmode" type="checkbox" checked /> use labels instead of accounts</br>
+						<label></label><button>Connect</button><br/>
+					</form>
+					<div id="serverInfo">
+						<h4>Server Information</h4>
+						<table>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<p><a href="http://tcatm.github.com/bitcoin-js-remote">bitcoin-js-remote</a> <span id="version"></span> by <a href="mailto:tcatm@gawab.com">tcatm</a></p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var bitcoinapp;
+
+			$(document).ready(function(){
+					bitcoinapp = new BitcoinApp();
+
+					jQuery.ajax({
+						url: "settings.json", 
+						dataType: 'application/json',
+						beforeSend: function(xhr){
+						if (xhr.overrideMimeType)
+						  {
+						    xhr.overrideMimeType("application/json");
+						  }
+						},
+						success: function(data, textStatus, req) { bitcoinapp.init(data); },
+						error: function(req, textStatus, error) { bitcoinapp.init(); }
+					});
+
+					if (bitcoinapp.useSlide())
+						$('#sections h3').click(function() {
+							$(this).next().slideToggle('fast');
+							return false;
+							});
+					else
+						$('#sections h3').click(function() {
+							$(this).next().toggle();
+							return false;
+							});
+
+					});
+		</script>
+	</body>
+</html>
